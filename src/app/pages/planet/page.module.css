@@ -1,0 +1,326 @@
+
+.header {
+    background-color: rgb(43, 3, 80);
+    width: 98%;
+    text-align: center;
+    padding: 1%;
+    color: beige;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .title h1 {
+    width: 90%;
+  }
+  
+  .mainMenu {
+    text-align: end;
+    width: 10%;
+  }
+  
+  .mainMenu button {
+    color: rgb(43, 3, 80);
+    border-radius: 2px;
+    border-style: none;
+  }
+  
+  .formUniverse {
+    width: 100%;
+    padding-bottom: 2%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    color: beige;
+  }
+  .formUniverse form {
+    display: block;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .formUniverse .uniName {
+    height: 25px;
+    width: 90%;
+    font-size: 20px;
+    margin-right: 1%;
+  }
+  
+  .formUniverse .uniAge {
+    height: 25px;
+    font-size: 20px;
+    width: 15%;
+    margin-right: 1%;
+  }
+
+  .habbited {
+    display: flex;  
+    padding: 1%;
+    justify-content: space-evenly;
+  }
+
+  .habbitedInput {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .populationInput {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+.uniId, .starId {
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+  .formUniverse .uniType {
+    height: 25px;
+    font-size: 20px;
+    width: 20%;
+    margin-right: 1%;
+  }
+
+  .formUniverseName {
+    margin-right: 1%;
+  }
+  
+  .formUniverseAge {
+    margin-right: 1%; 
+  }
+  
+  .formUniverse button {
+    height: 32px;
+    width: 10%;
+    color: rgb(43, 3, 80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .formUniverse a {
+    text-decoration: none;
+    width: 10%;
+  } 
+
+  .section {
+      background: url(../../../../public/web_first_images_release.png) center;
+    min-height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+  
+  .divAll {
+      display: flex;
+      min-height: auto ;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      box-sizing: border-box;
+      padding: 2%;
+  }
+  
+  .details {
+      width: 27%;
+      padding: 2%;
+      margin: 1%;
+      height: 15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url(../../../../public/tumblr_p1qv14GW1H1wqkm0qo7_1280.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: solid 3px whitesmoke;
+      color: whitesmoke;
+  }
+  
+  .universeInfo {
+      text-align: center;
+    }
+    
+    .btns {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
+    }
+    
+    .btns button {
+    border-radius: 10px;
+    background-color: rgb(245, 86, 86);
+    border-style: none;
+    cursor: pointer;
+    color: whitesmoke;
+    width: 30%;
+    padding: 1%;
+  }
+  
+  .btns a {
+    width: 30%;
+  }
+  
+  .btns a button {
+    padding: 3%;
+    background-color:  rgb(69, 95, 180);
+    width: 100%;
+  }
+  
+  @media(max-width: 1494px) {
+  .details {
+  width: 25%;
+  }
+  }
+  
+  @media(max-width: 1024px) {
+    .form {
+        display: flex;
+        flex-direction: column; 
+      }
+  }
+
+  @media(max-width: 955px) { 
+  .universeInfo h1 {
+  font-size: 25px;
+  }
+  .universeInfo h3 {
+   font-size: 16px; 
+  }
+
+  .habbitedInput {
+    align-items: center;
+  }
+
+  .habbited {
+   font-size: 20px;
+  }
+
+  }
+  
+  @media(max-width: 750px) { 
+    
+    .details {
+      width: 40%;
+  }
+
+  .habbited {
+     font-size: 15px;
+  }
+  .habbitedInput {
+   width: 50%;
+   justify-content: left;
+  }
+
+  .populationInput {
+    width: 50%;
+    justify-content: right;
+  }
+
+
+  }
+  
+  @media(max-width: 640px) {
+    .title {
+      font-size: 10px;
+    }
+    .mainMenu {
+      width: 20%;
+    }
+  
+    .mainMenu button {
+      font-size: 10px;
+    }
+  
+    .formUniverse form {
+      font-size: 15px;
+    }
+  
+    .formUniverse .uniName {
+      height: 15px;
+      width: 50%;
+      font-size: 20px;
+    }
+    
+    .formUniverse .uniAge {
+      height: 15px;
+      font-size: 20px;
+      width: 15%;
+    }
+
+    .formUniverse .uniType {
+        height: 15px;
+        font-size: 20px;
+        width: 25%;
+      }
+  
+    .formUniverse button {
+      height: 20px;
+      width: 10%;
+      padding: 2%;
+      font-size: 8px;
+    }
+    }
+
+    @media(max-width: 520px) {
+      .habbited {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .populationInput {
+        justify-content: left;
+      }
+    }
+  
+    @media(max-width: 470px) { 
+    
+      .details {
+        width: 100%;
+    }
+
+    .populationInput {
+      width: 80%;
+    }
+    .populationInput input {
+      width: 100%
+    }
+    }
+  
+    @media(max-width: 380px) { 
+      .formUniverse .uniName {
+        font-size: 20px;
+      }
+  
+      .formUniverse form {
+        width: 80%;
+      }
+      
+      .formUniverse .uniAge {
+        width: 15%;
+      }
+
+      .formUniverse .uniType {
+        width: 15%;
+      }
+    
+      .formUniverse a {
+        width: 20%;
+      }
+      .formUniverse button {
+        font-size: 10px;
+        width: 30%;
+      }
+      
+    }
+  
+    

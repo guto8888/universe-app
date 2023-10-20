@@ -1,0 +1,14 @@
+.btnClick {
+    background-color: whitesmoke;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5%;
+    width: 90%;
+}
+
+@media(max-width: 765px) { 
+    .btnClick {
+        font-size: 10px;
+        width: 50%;
+    }
+}

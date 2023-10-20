@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SequelizeMeta {
+  name String @id @db.VarChar(255)
+}
+
+model blackHole {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar(25)
+  age       Int
+  galaxy_id Int?
+  galaxy    galaxy? @relation(fields: [galaxy_id], references: [id], onDelete: Cascade)
+}
+
+model galaxy {
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(25)
+  age         Int
+  universe_id Int?
+  blackHole   blackHole[]
+  universe    universe?     @relation(fields: [universe_id], references: [id], onDelete: Cascade)
+  solarSystem solarSystem[]
+}
+
+model planet {
+  id             Int          @id @default(autoincrement())
+  name           String       @db.VarChar(25)
+  age            Int
+  is_inhabited   Boolean      @default(false)
+  population     Int?
+  solarSystem_id Int?
+  star_id        Int?
+  solarSystem    solarSystem? @relation(fields: [solarSystem_id], references: [id], onDelete: Cascade)
+  star           star?        @relation(fields: [star_id], references: [id], onDelete: Cascade)
+  satellite      satellite[]
+}
+
+model remainingCelestialBodies {
+  id             Int          @id @default(autoincrement())
+  name           String       @db.VarChar(25)
+  age            Int
+  type           String       @db.VarChar(15)
+  solarSystem_id Int?
+  solarSystem    solarSystem? @relation(fields: [solarSystem_id], references: [id], onDelete: Cascade)
+}
+
+model satellite {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar(25)
+  age       Int
+  planet_id Int?
+  planet    planet? @relation(fields: [planet_id], references: [id], onDelete: Cascade)
+}
+
+model solarSystem {
+  id                       Int                        @id @default(autoincrement())
+  name                     String                     @db.VarChar(25)
+  age                      Int
+  galaxy_id                Int?
+  planet                   planet[]
+  remainingCelestialBodies remainingCelestialBodies[]
+  galaxy                   galaxy?                    @relation(fields: [galaxy_id], references: [id], onDelete: Cascade)
+  star                     star[]
+}
+
+model star {
+  id             Int          @id @default(autoincrement())
+  name           String       @db.VarChar(25)
+  type           String       @db.VarChar(15)
+  age            Int
+  solarSystem_id Int?
+  planet         planet[]
+  solarSystem    solarSystem? @relation(fields: [solarSystem_id], references: [id], onDelete: Cascade)
+}
+
+model universe {
+  id     Int      @id @default(autoincrement())
+  name   String   @db.VarChar(25)
+  age    Int
+  galaxy galaxy[]
+}

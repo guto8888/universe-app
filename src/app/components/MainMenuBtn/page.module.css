@@ -1,0 +1,20 @@
+.mainMenu {
+    text-align: end;
+    width: 10%;
+  }
+  
+  .mainMenu button {
+    color: rgb(43, 3, 80);
+    border-radius: 2px;
+    border-style: none;
+  }
+  
+  @media(max-width: 640px) {
+    .mainMenu {
+      width: 20%;
+    }
+  
+    .mainMenu button {
+      font-size: 10px;
+    }
+  }  
