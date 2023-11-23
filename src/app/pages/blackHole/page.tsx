@@ -101,7 +101,7 @@ export default function Menu() {
           <div className={style.details} key={dataId}>
             {uniData}
             <div className={style.btns}>
-              <DeleteBtn props={{'url': 'http://localhost:3000/pages/api/blackHole', findDatabase, 'uniData': dataId }} />
+              <DeleteBtn props={{'url': 'https://universe-app-iota.vercel.app/pages/api/blackHole', findDatabase, 'uniData': dataId }} />
               <EditButton props={`/pages/blackHole/edit/${dataId}`}/>
             </div>
           </div>
