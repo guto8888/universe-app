@@ -20,7 +20,7 @@ export default function Menu() {
   const galaxyName: UniversalName[] = [] 
   
   const findGalaxy = async () => {
-    const galaxy = await fetch("http://localhost:3000/pages/api/galaxy")
+    const galaxy = await fetch("https://universe-app-iota.vercel.app/pages/api/galaxy")
     const galaxyJson = await galaxy.json()
     galaxyJson.sort((a:SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -36,7 +36,7 @@ export default function Menu() {
   const findDatabase = async () => {
     setLoading(false)
     await findGalaxy()
-    const blackHole = await fetch("http://localhost:3000/pages/api/blackHole")
+    const blackHole = await fetch("https://universe-app-iota.vercel.app/pages/api/blackHole")
     const blackHoleJson = await blackHole.json()
     blackHoleJson.sort((a:SortType, b: SortType) => {
       return Number(a.name.slice(8, 20)) - Number(b.name.slice(8, 20)) 
@@ -91,7 +91,7 @@ export default function Menu() {
               {optionUni}
             </select>
           </form>
-          <CreateBtn props={{findDatabase, 'url': 'http://localhost:3000/pages/api/blackHole'}} />
+          <CreateBtn props={{findDatabase, 'url': 'https://universe-app-iota.vercel.app/pages/api/blackHole'}} />
         </div>
       </div>
       <div className={style.divAll}>
