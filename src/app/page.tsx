@@ -6,6 +6,10 @@ import LoadingSpinner from "./components/Loading/loading"
 
 import style from "@/app/page.module.css"
 
+interface TableType {
+  table_name: string,
+}
+
 export default function Tables() {
   const [uniList, setList] = useState<React.ReactNode[]>([])  
   const [loaded, setLoaded] = useState<boolean>(false)
@@ -16,7 +20,7 @@ export default function Tables() {
     setLoaded(false)
     const universe = await fetch("http://localhost:3000/pages/api/api_getTable")
     const universeJson = await universe.json()
-    universeJson.map((table: {table_name: string}) => {
+    universeJson.map((table: TableType) => {
       let name
       switch(table.table_name) {
         case "universe":
@@ -29,7 +33,7 @@ export default function Tables() {
           name = "Solar System"
         break
         case "star":
-          name = "Start"
+          name = "Star"
         break
         case "planet":
           name = "Planet"
@@ -57,6 +61,72 @@ export default function Tables() {
           )
       }
         })
+        function sortArr() {
+          finalArr.sort((a, b) => {
+            let idA
+            let idB
+            switch(a.key) {
+              case "universe":
+               idA = 1
+              break
+              case "galaxy":
+               idA = 2
+              break
+              case "solarSystem":
+               idA = 3
+              break
+              case "star":
+               idA = 4
+              break
+              case "planet":
+               idA = 5
+              break
+              case "satellite":
+               idA = 6
+              break
+              case "remainingCelestialBodies":
+               idA = 7
+              break
+              case "blackHole":
+               idA = 8
+              break
+              default:
+                return 10
+            }
+  
+            switch(b.key) {
+              case "universe":
+                idB = 1
+              break
+              case "galaxy":
+                idB = 2
+              break
+              case "solarSystem":
+                idB = 3
+              break
+              case "star":
+                idB = 4
+              break
+              case "planet":
+                idB = 5
+              break
+              case "satellite":
+                idB = 6
+              break
+              case "remainingCelestialBodies":
+                idB = 7
+              break
+              case "blackHole":
+                idB = 8
+              break
+              default:
+                 return 10
+            }
+            return idA! - idB!
+          })
+  
+        }
+         sortArr()
         setList(finalArr)
         setLoaded(true)
   }
