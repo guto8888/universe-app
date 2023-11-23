@@ -18,7 +18,7 @@ export default function Tables() {
 
   const findDatabase = async () => {
     setLoaded(false)
-    const universe = await fetch("http://localhost:3000/pages/api/api_getTable")
+    const universe = await fetch("https://universe-app-iota.vercel.app//pages/api/api_getTable")
     const universeJson = await universe.json()
     universeJson.map((table: TableType) => {
       let name
