@@ -26,7 +26,7 @@ export default function Edit() {
   const uniArr: ReactElement[] = []
 
   const findSolarSystem = async () => {
-    const solarSystem = await fetch("http://localhost:3000/pages/api/solarSystem")
+    const solarSystem = await fetch("https://universe-app-iota.vercel.app/pages/api/solarSystem")
     const solarSystemJson = await solarSystem.json()
     solarSystemJson.sort((a:SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -41,9 +41,9 @@ export default function Edit() {
 const findOne = async () => {
   setLoading(false)
   await findSolarSystem()
-  const restBodies = await fetch("http://localhost:3000/pages/api/restCelestialBodies")
+  const restBodies = await fetch("https://universe-app-iota.vercel.app/pages/api/restCelestialBodies")
   const uniJson = await restBodies.json()
-  const solarSystem = await fetch("http://localhost:3000/pages/api/solarSystem")
+  const solarSystem = await fetch("https://universe-app-iota.vercel.app/pages/api/solarSystem")
   const solarSystemJson = await solarSystem.json()
   uniJson.map(({ id, name, solarSystem_id, age, type }: StarType) => {
     solarSystemJson.map((u: {name: string, id: number}) => {
@@ -105,7 +105,7 @@ const findOne = async () => {
             </div>
           </div>
           <div className={style.mainDivBtn}>
-            <EditConfirmBtn props={{'type': newType, 'href': "/pages/restCelestialBodies", 'name': String(newName), 'id': newId, 'age': newAge, 'url': 'http://localhost:3000/pages/api/restCelestialBodies'}} />
+            <EditConfirmBtn props={{'type': newType, 'href': "/pages/restCelestialBodies", 'name': String(newName), 'id': newId, 'age': newAge, 'url': 'https://universe-app-iota.vercel.app/pages/api/restCelestialBodies'}} />
           </div>
         </div>
       </div>
