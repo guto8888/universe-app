@@ -21,10 +21,6 @@ Clone o projeto
 ```
 
 ```bash
-   cd multi_api
-```
-
-```bash
    npm install
 ```
 
