@@ -23,7 +23,7 @@ export default function Menu() {
   const starName: UniversalName[] = []
 
   const findSolarSystem = async () => {
-    const solarSystem = await fetch("http://localhost:3000/pages/api/solarSystem")
+    const solarSystem = await fetch("https://universe-app-iota.vercel.app/pages/api/solarSystem")
     const solarSystemJson = await solarSystem.json()
     solarSystemJson.sort((a:SortType, b: SortType) => {
         return Number(a.name.slice(7, 20)) - Number(b.name.slice(7, 20)) 
@@ -35,7 +35,7 @@ export default function Menu() {
     })
     setOption(uniArr)
 
-    const star = await fetch("http://localhost:3000/pages/api/star")
+    const star = await fetch("https://universe-app-iota.vercel.app/pages/api/star")
     const starJson = await star.json()
     starJson.sort((a:SortType, b: SortType) => {
         return Number(a.name.slice(7, 20)) - Number(b.name.slice(7, 20)) 
@@ -51,7 +51,7 @@ export default function Menu() {
   const findDatabase = async () => {
     setLoading(false)
     await findSolarSystem()
-    const planet = await fetch("http://localhost:3000/pages/api/planet")
+    const planet = await fetch("https://universe-app-iota.vercel.app/pages/api/planet")
     const planetJson = await planet.json()
     planetJson.sort((a: SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -125,7 +125,7 @@ export default function Menu() {
             </div>
           </div>
         </form>
-        <CreateBtn props={{ findDatabase, 'url': 'http://localhost:3000/pages/api/planet'}} />
+        <CreateBtn props={{ findDatabase, 'url': 'https://universe-app-iota.vercel.app/pages/api/planet'}} />
       </div>
     </div>
     <section className={style.section}>
@@ -136,7 +136,7 @@ export default function Menu() {
           <div className={style.details} key={dataId}>
           {uniData}
             <div className={style.btns}>
-              <DeleteBtn props={{'url': 'http://localhost:3000/pages/api/planet', findDatabase, 'uniData': dataId}} />
+              <DeleteBtn props={{'url': 'https://universe-app-iota.vercel.app/pages/api/planet', findDatabase, 'uniData': dataId}} />
               <EditButton props={`/pages/planet/edit/${dataId}`}/>
             </div>
           </div>
