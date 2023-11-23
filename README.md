@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Universe Database
 
-## Getting Started
+Projeto feito usando NextJS, ReactJS, Postgresql, Typescript, Css e Prisma, com uma página inicial mostrando dados da database, e clicando em cada item exibirá o conteúdo de cada tabela.
 
-First, run the development server:
+
+## Tecnologias utilizadas
+
+- ![Static Badge](https://img.shields.io/badge/NextJS-green)
+- ![Static Badge](https://img.shields.io/badge/ReactJS-blue)
+- ![Static Badge](https://img.shields.io/badge/Typescript-blue)
+- ![Static Badge](https://img.shields.io/badge/CSS-blue)
+- ![Static Badge](https://img.shields.io/badge/Prisma-black)
+- ![Static Badge](https://img.shields.io/badge/Postgresql-orange)
+
+## Rodando localmente
+
+Clone o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  https://github.com/guto8888/universe-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+   cd multi_api
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+   npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+   npx prisma migrate dev --name init
+```
 
-## Learn More
+```bash
+   npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Criação do projeto.
+- Atualizações para melhorar a aplicação.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Aprendizados
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Aprendi a utilizar o Prisma em conjunto com o NextJS e alguns de seus métodos, utilizando o Postgresql e também utilizando Typescript.
+
+
+## Funcionalidades
+
+- Utilização de NextJS e Prisma.
+- Utilizando postgresql para salvar dados sobre o universo e exibir informações sobre.
+
+
+## Documentação
+
+[Documentação do NextJS](https://nextjs.org/docs)
+[Documentação do NextJS](https://www.prisma.io/docs)
+
+## Autores
+
+- [@guto8888](https://github.com/guto8888)
