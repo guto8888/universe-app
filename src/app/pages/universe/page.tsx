@@ -19,7 +19,7 @@ export default function Menu() {
 
   const findDatabase = async () => {
     setLoading(false)
-    const universe = await fetch("https://universe-app-iota.vercel.app/pages/api/universe")
+    const universe = await fetch(`${process.env.BASE_URL}/pages/api/universe`)
     const universeJson = await universe.json()
     universeJson.sort((a: SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -57,7 +57,7 @@ export default function Menu() {
           </label>
           <input className={style.uniAge} name="age" id="age" type="number" />
         </form>
-        <CreateBtn props={{findDatabase, 'url': 'https://universe-app-iota.vercel.app/pages/api/universe'}} />        
+        <CreateBtn props={{findDatabase, 'url': `${process.env.BASE_URL}/pages/api/universe`}} />        
       </div>
     </div>
     <div className={style.divAll}>
@@ -67,7 +67,7 @@ export default function Menu() {
             <div className={style.details} key={dataId}>
               {uniData}
               <div className={style.btns}>
-              <DeleteBtn props={{'uniData': dataId, findDatabase, 'url': 'https://universe-app-iota.vercel.app/pages/api/universe'}} />
+              <DeleteBtn props={{'uniData': dataId, findDatabase, 'url': `${process.env.BASE_URL}/pages/api/universe`}} />
               <EditButton props={`/pages/universe/edit/${dataId}`}/>
             </div>
           </div>
