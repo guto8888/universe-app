@@ -20,7 +20,7 @@ export default function Menu() {
   const galaxyName: UniversalName[] = [] 
 
   const findGalaxy = async () => {
-    const galaxy = await fetch("https://universe-app-iota.vercel.app/pages/api/galaxy")
+    const galaxy = await fetch(`${process.env.BASE_URL}/pages/api/galaxy`)
     const galaxyJson = await galaxy.json()
     galaxyJson.sort((a: SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -37,7 +37,7 @@ export default function Menu() {
     setLoading(false)
     await findGalaxy()
 
-    const solarSystem = await fetch("https://universe-app-iota.vercel.app/pages/api/solarSystem")
+    const solarSystem = await fetch(`${process.env.BASE_URL}/pages/api/solarSystem`)
     const solarSystemJson = await solarSystem.json()
     solarSystemJson.sort((a:SortType, b: SortType) => {
       return Number(a.name.slice(8, 20)) - Number(b.name.slice(8, 20)) 
@@ -89,7 +89,7 @@ export default function Menu() {
           {optionUni}
           </select>
         </form>
-        <CreateBtn props={{findDatabase, 'url': "https://universe-app-iota.vercel.app/pages/api/solarSystem"}} />
+        <CreateBtn props={{findDatabase, 'url': `${process.env.BASE_URL}/pages/api/solarSystem`}} />
       </div>
     </div>
     <div className={style.divAll}>
@@ -99,7 +99,7 @@ export default function Menu() {
         <div className={style.details} key={dataId}>
           {uniData}
           <div className={style.btns}>
-            <DeleteBtn props={{'uniData': dataId, findDatabase, 'url': 'https://universe-app-iota.vercel.app/pages/api/solarSystem'}} />
+            <DeleteBtn props={{'uniData': dataId, findDatabase, 'url': `${process.env.BASE_URL}/pages/api/solarSystem`}} />
             <EditButton props={`/pages/solarSystem/edit/${dataId}`}/>
           </div>
         </div>
