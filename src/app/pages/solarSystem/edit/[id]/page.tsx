@@ -24,7 +24,7 @@ export default function Edit() {
   const uniArr: ReactElement[] = [] 
   
   const findGalaxy = async () => {
-    const galaxy = await fetch("https://universe-app-iota.vercel.app/pages/api/galaxy")
+    const galaxy = await fetch(`${process.env.BASE_URL}/pages/api/galaxy`)
     const galaxyJson = await galaxy.json()
     galaxyJson.sort((a: SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -41,10 +41,10 @@ export default function Edit() {
     
     await findGalaxy()
     
-    const solarSystem = await fetch("https://universe-app-iota.vercel.app/pages/api/solarSystem")
+    const solarSystem = await fetch(`${process.env.BASE_URL}/pages/api/solarSystem`)
     const uniJson = await solarSystem.json()
     
-    const gal = await fetch("https://universe-app-iota.vercel.app/pages/api/galaxy")
+    const gal = await fetch(`${process.env.BASE_URL}/pages/api/galaxy`)
     const galJson = await gal.json()
     
     uniJson.map(({ galaxy_id, id, name, age }: SolarType) => {
@@ -102,7 +102,7 @@ export default function Edit() {
             </div>
           </div>
           <div className={style.mainDivBtn}>
-            <EditConfirmBtn props={{href: "/pages/solarSystem", name: String(newName), age: newAge, id: newId, url: 'https://universe-app-iota.vercel.app/pages/api/solarSystem'}}/>   
+            <EditConfirmBtn props={{href: "/pages/solarSystem", name: String(newName), age: newAge, id: newId, url: `${process.env.BASE_URL}/pages/api/solarSystem`}}/>   
           </div>
         </div>
       </div>
