@@ -18,7 +18,7 @@ export default function Tables() {
 
   const findDatabase = async () => {
     setLoaded(false)
-    const universe = await fetch("https://universe-app-iota.vercel.app//pages/api/api_getTable")
+    const universe = await fetch(`${process.env.BASE_URL}/pages/api/api_getTable`)
     const universeJson = await universe.json()
     universeJson.map((table: TableType) => {
       let name
@@ -139,7 +139,7 @@ export default function Tables() {
     <>
     <div className={style.mainDiv}>
       <div className={style.titleDiv}>
-    <h1 className={style.title}>Selecione onde deseja Adicionar ou Atualizar um item:</h1>
+    <h1 className={style.title}>Selecione onde deseja Adicionar ou Atualizar um item:(em ordem)</h1>
       </div>
     <div className={style.boxName}>
     {uniList}
