@@ -23,7 +23,7 @@ export default function Edit() {
   const uniArr: ReactElement[] = []
 
   const findUniverse = async () => {
-    const galaxy = await fetch("https://universe-app-iota.vercel.app/pages/api/galaxy")
+    const galaxy = await fetch(`${process.env.BASE_URL}/pages/api/galaxy`)
     const galaxyJson = await galaxy.json()
     galaxyJson.sort((a:SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -38,9 +38,9 @@ export default function Edit() {
   const findOne = async () => {
     setLoading(false)
     await findUniverse()
-    const blackHole = await fetch("https://universe-app-iota.vercel.app/pages/api/blackHole")
+    const blackHole = await fetch(`${process.env.BASE_URL}/pages/api/blackHole`)
     const uniJson = await blackHole.json()
-    const gal = await fetch("https://universe-app-iota.vercel.app/pages/api/galaxy")
+    const gal = await fetch(`${process.env.BASE_URL}/pages/api/galaxy`)
     const galJson = await gal.json()
     uniJson.map(({ age, galaxy_id, name, id }: SolarType) => {
       galJson.map((u: UniversalName) => {
@@ -96,7 +96,7 @@ export default function Edit() {
             </div>
           </div>
           <div className={style.mainDivBtn}>
-            <EditConfirmBtn props={{ 'href': '/pages/blackHole', 'name': String(newName), 'id': newId, 'age': newAge, 'url': 'https://universe-app-iota.vercel.app/pages/api/blackHole' }} />
+            <EditConfirmBtn props={{ 'href': '/pages/blackHole', 'name': String(newName), 'id': newId, 'age': newAge, 'url': `${process.env.BASE_URL}/pages/api/blackHole` }} />
           </div>
         </div>
       </div>
