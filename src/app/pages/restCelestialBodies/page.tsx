@@ -20,7 +20,7 @@ export default function Menu() {
   const restBodiesName: UniversalName[] = [] 
 
   const findSolarSystem = async () => {
-    const solarSystem = await fetch("https://universe-app-iota.vercel.app/pages/api/solarSystem")
+    const solarSystem = await fetch(`${process.env.BASE_URL}/pages/api/solarSystem`)
     const solarSystemJson = await solarSystem.json()
     solarSystemJson.sort((a:SortType, b: SortType) => {
         return Number(a.name.slice(7, 20)) - Number(b.name.slice(7, 20)) 
@@ -36,7 +36,7 @@ export default function Menu() {
   const findDatabase = async () => {
     setLoading(false)
     await findSolarSystem()
-    const restBodies = await fetch("https://universe-app-iota.vercel.app/pages/api/restCelestialBodies")
+    const restBodies = await fetch(`${process.env.BASE_URL}/pages/api/restCelestialBodies`)
     const restBodiesJson = await restBodies.json()
     restBodiesJson.sort((a:SortType, b: SortType) => {
       return Number(a.name.slice(9, 20)) - Number(b.name.slice(9, 20)) 
@@ -94,7 +94,7 @@ export default function Menu() {
             {optionUni}
           </select>
         </form>
-        <CreateBtn props={{ findDatabase, 'url': 'https://universe-app-iota.vercel.app/pages/api/restCelestialBodies'}} />
+        <CreateBtn props={{ findDatabase, 'url': `${process.env.BASE_URL}/pages/api/restCelestialBodies`}} />
       </div>
     </div>
     <div className={style.divAll}>
@@ -104,7 +104,7 @@ export default function Menu() {
           <div className={style.details} key={dataId}>
             {uniData}
             <div className={style.btns}>
-              <DeleteBtn props={{'url': 'https://universe-app-iota.vercel.app/pages/api/restCelestialBodies', findDatabase, 'uniData': dataId}} />
+              <DeleteBtn props={{'url': `${process.env.BASE_URL}/pages/api/restCelestialBodies`, findDatabase, 'uniData': dataId}} />
               <EditButton props={`/pages/restCelestialBodies/edit/${dataId}`}/>
             </div>
           </div>
