@@ -22,7 +22,7 @@ export default function Edit() {
 
 const findOne = async () => {
   setLoading(false)
-  const universe = await fetch("https://universe-app-iota.vercel.app/pages/api/universe")
+  const universe = await fetch(`${process.env.BASE_URL}/pages/api/universe`)
   const uniJson = await universe.json()
   uniJson.map(({name, age, id}: UniversalType) => {
      if(id === newId) {
@@ -57,7 +57,7 @@ const findOne = async () => {
           </div>
         </div>
         <div className={style.mainDivBtn}>
-        <EditConfirmBtn props={{href: "/pages/universe", name: String(newName), age: newAge, id: newId, url: 'https://universe-app-iota.vercel.app/pages/api/universe' }} />
+        <EditConfirmBtn props={{href: "/pages/universe", name: String(newName), age: newAge, id: newId, url: `${process.env.BASE_URL}/pages/api/universe` }} />
         </div>
         </div>
         </div>
